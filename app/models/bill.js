@@ -37,7 +37,7 @@ const billSchema = new Schema({
             }
         }
     ]
-})
+}, { timestamps: true })
 
 billSchema.pre('save', function(next){
     const bill = this 

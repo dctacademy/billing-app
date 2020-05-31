@@ -36,8 +36,9 @@ const userSchema = new Schema({
     address: {
         type: String,
         required: [true, 'business address is required']
-    },
-})
+    }
+}, { timestamps: true })
+
 
 userSchema.pre('save', function(next){
     const user = this
