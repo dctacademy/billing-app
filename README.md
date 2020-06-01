@@ -49,6 +49,9 @@ This repo, is a backend only rest api services setup for a billing application. 
 | # | action | method | url | request | response | auth (headers) |
 | ---- |-----|-------|--------|---------|------| ------|
 | 1. | List all bills | GET | /bills | - | empty array or array of objects | { Authorization : 'Bearer token'} | 
-| 2. | create a bill | POST | /bills | <ul><li>date*</li><li>customer*</li><li>lineItems* <ul><li>product</li><li>quantity</li></ul></li></ul> | <ul> <li>_id</li> <li>date</li><li>customer</li><li>lineItems <ul><li>_id</li><li>product</li><li>price</li><li>quantity</li><li>subTotal</li></ul> </li><li>user</li><li>createdAt</li><li>updatedAt</li><li>total</li> </ul> | { Authorization : 'Bearer token'} |
+| 2. | create a bill | POST | /bills | <ul><li>date*</li><li>customer*</li><li>lineItems* <ul><li>product*</li><li>quantity</li></ul></li></ul> | <ul> <li>_id</li> <li>date</li><li>customer</li><li>lineItems <ul><li>_id</li><li>product</li><li>price</li><li>quantity</li><li>subTotal</li></ul> </li><li>user</li><li>createdAt</li><li>updatedAt</li><li>total</li> </ul> | { Authorization : 'Bearer token'} |
 | 3. | get a bill | GET | /bills/:id  | - |  <ul> <li>_id</li> <li>date</li><li>customer</li><li>lineItems <ul><li>_id</li><li>product</li><li>price</li><li>quantity</li><li>subTotal</li></ul> </li><li>user</li><li>createdAt</li><li>updatedAt</li><li>total</li> </ul> | { Authorization : 'Bearer token'} |
 | 4. | delete a bill  | DELETE | /bills/:id | - |  <ul> <li>_id</li> <li>date</li><li>customer</li><li>lineItems <ul><li>_id</li><li>product</li><li>price</li><li>quantity</li><li>subTotal</li></ul> </li><li>user</li><li>createdAt</li><li>updatedAt</li><li>total</li> </ul>  | { Authorization : 'Bearer token'} |
+
+**note - * indicates a required field**
+
