@@ -3,39 +3,52 @@ This repo, is a backend only rest api services setup for a billing application. 
 
 ## API's
 
+
 ### User Resource 
 
-| method | url | action | request | response | auth (headers) |
-|-----|-------|--------|---------|------| ------|
-| POST | /users/register | register a user | username - string, email - string, password - string, businessName - string, address - string | _id - string, username - string, email - string, password - string, businessName - string, address - string, createdAt - String, updatedAt - String | no | 
-| POST | /users/login | login a user | email - string, password - string| token - String | no |
-| GET | /users/account | get user information | - |  _id - string, username - string, email - string, password - string, businessName - string, address - string, createdAt - String, updatedAt - String | { Authorization : 'Bearer token'} |
+| # | action | method | url | request | response | auth (headers) |
+| ---- |-----|-------|--------|---------|------| ------|
+| 1. | register a user | POST | /users/register | <ul> <li> username*  </li> <li> email*  </li> <li> password*  </li> <li> businessName  </li> <li> address  </li> </ul>  |  <ul> <li> _id </li> <li> username </li> <li> email </li>  <li> password </li> <li> businessName </li> <li> address</li> <li> createdAt</li> <li> updatedAt </li> </ul> | no | 
+| 2. | login a user | POST | /users/login |  <ul> <li> email* </li> <li> password* </li> </ul> | <ul> <li>  token </li></ul> | no |
+| 3. | get user information | GET | /users/account | - |  <ul> <li> _id </li> <li> username </li> <li> email </li>  <li> password </li> <li> businessName </li> <li> address</li> <li> createdAt</li> <li> updatedAt </li> </ul> | `{ Authorization : 'Bearer token'}` |
+
+**note - * indicates a required field**
+
+---
 
 ### Customer Resource 
 
-| method | url | action | request | response | auth (headers) |
-|-----|-------|--------|---------|------| ------|
-| GET | /customers | lists all customers | - | empty array or array of objects | { Authorization : 'Bearer token'} | 
-| POST | /customers | create a customer | body - string | id - number, body - string, createdAt - date | { Authorization : 'Bearer token'} |
-| GET | /customers/:id | get a customer | - | id - number, body - string, createdAt - date | { Authorization : 'Bearer token'} |
-| PUT | /customers/:id | update a customer | body - string | id - number, body - string, createdAt - date | { Authorization : 'Bearer token'} |
-| DELETE | /customers/:id | delete a customer | - | id - number, body - string, createdAt - date  | { Authorization : 'Bearer token'} |
+| # | action | method | url | request | response | auth (headers) |
+| ----- |-----|-------|--------|---------|------| ------|
+| 1. | lists all customers | GET | /customers | - | empty array or array of objects <br/> | `{ Authorization : 'Bearer token'}` | 
+| 2. | create a customer | POST | /customers  | <ul><li>name*</li> <li>mobile*</li> <li> email </li></ul> | <ul> <li>_id</li> <li> name </li> <li>mobile</li><li>email</li> <li>user</li><li>createdAt</li> <li>updatedAt</li> </ul>| `{ Authorization : 'Bearer token'}` |
+| 3. | get a customer | GET | /customers/:id  | - | <ul> <li>_id</li> <li> name </li> <li>mobile</li><li>email</li> <li>user</li><li>createdAt</li> <li>updatedAt</li> </ul> | `{ Authorization : 'Bearer token'}` |
+| 4. | update a customer | PUT | /customers/:id  | <ul><li>name*</li> <li>mobile*</li> <li> email </li></ul> | <ul> <li>_id</li> <li> name </li> <li>mobile</li><li>email</li> <li>user</li><li>createdAt</li> <li>updatedAt</li> </ul> | `{ Authorization : 'Bearer token'}` |
+| 5. | delete a customer | DELETE | /customers/:id  | - | <ul> <li>_id</li> <li> name </li> <li>mobile</li><li>email</li> <li>user</li><li>createdAt</li> <li>updatedAt</li> </ul> | `{ Authorization : 'Bearer token'}` |
+
+**note - * indicates a required field**
+
+---
 
 ### Product Resource 
 
-| method | url | action | request | response | auth (headers) |
-|-----|-------|--------|---------|------| ------|
-| GET | /products | lists all products | - | empty array or array of objects | { Authorization : 'Bearer token'} | 
-| POST | /products | create a product | body - string | id - number, body - string, createdAt - date | { Authorization : 'Bearer token'} |
-| GET | /products/:id | get a product | - | id - number, body - string, createdAt - date | { Authorization : 'Bearer token'} |
-| PUT | /products/:id | update a product | body - string | id - number, body - string, createdAt - date | { Authorization : 'Bearer token'} |
-| DELETE | /products/:id | delete a product | - | id - number, body - string, createdAt - date  | { Authorization : 'Bearer token'} |
+| # | action | method | url  | request | response | auth (headers) |
+| ---- |-----|-------|--------|---------|------| ------|
+| 1. | lists all products | GET | /products  | - | empty array or array of objects | { Authorization : 'Bearer token'} | 
+| 2. | create a product | POST | /products  | <ul> <li>name*</li><li>price*</li> </ul> | <ul> <li>_id</li> <li>name</li><li>price</li><li>user</li><li>createdAt</li><li>updatedAt</li> </ul> | { Authorization : 'Bearer token'} |
+| 3. | get a product | GET | /products/:id  | - | <ul> <li>_id</li> <li>name</li><li>price</li><li>user</li><li>createdAt</li><li>updatedAt</li> </ul> | { Authorization : 'Bearer token'} |
+| 4. | update a product | PUT | /products/:id  |<ul> <li>name*</li><li>price*</li> </ul> | <ul> <li>_id</li> <li>name</li><li>price</li><li>user</li><li>createdAt</li><li>updatedAt</li> </ul> | { Authorization : 'Bearer token'} |
+| 5. | delete a product | DELETE | /products/:id  | - | <ul> <li>_id</li> <li>name</li><li>price</li><li>user</li><li>createdAt</li><li>updatedAt</li> </ul>  | { Authorization : 'Bearer token'} |
+
+**note - * indicates a required field**
+
+---
 
 ### Bill Resource 
 
-| method | url | action | request | response | auth (headers) |
-|-----|-------|--------|---------|------| ------|
-| GET | /bills | lists all bills | - | empty array or array of objects | { Authorization : 'Bearer token'} | 
-| POST | /bills | create a bill | body - string | id - number, body - string, createdAt - date | { Authorization : 'Bearer token'} |
-| GET | /bills/:id | get a bill | - | id - number, body - string, createdAt - date | { Authorization : 'Bearer token'} |
-| DELETE | /bills/:id | delete a bill | - | id - number, body - string, createdAt - date  | { Authorization : 'Bearer token'} |
+| # | action | method | url | request | response | auth (headers) |
+| ---- |-----|-------|--------|---------|------| ------|
+| 1. | List all bills | GET | /bills | - | empty array or array of objects | { Authorization : 'Bearer token'} | 
+| 2. | create a bill | POST | /bills | <ul><li>date*</li><li>customer*</li><li>lineItems* <ul><li>product</li><li>quantity</li></ul></li></ul> | <ul> <li>_id</li> <li>date</li><li>customer</li><li>lineItems <ul><li>_id</li><li>product</li><li>price</li><li>quantity</li><li>subTotal</li></ul> </li><li>user</li><li>createdAt</li><li>updatedAt</li><li>total</li> </ul> | { Authorization : 'Bearer token'} |
+| 3. | get a bill | GET | /bills/:id  | - |  <ul> <li>_id</li> <li>date</li><li>customer</li><li>lineItems <ul><li>_id</li><li>product</li><li>price</li><li>quantity</li><li>subTotal</li></ul> </li><li>user</li><li>createdAt</li><li>updatedAt</li><li>total</li> </ul> | { Authorization : 'Bearer token'} |
+| 4. | delete a bill  | DELETE | /bills/:id | - |  <ul> <li>_id</li> <li>date</li><li>customer</li><li>lineItems <ul><li>_id</li><li>product</li><li>price</li><li>quantity</li><li>subTotal</li></ul> </li><li>user</li><li>createdAt</li><li>updatedAt</li><li>total</li> </ul>  | { Authorization : 'Bearer token'} |

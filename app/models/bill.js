@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const Product = require('./product')
+const lineItemSchema = require('./lineItem')
 
 const billSchema = new Schema({
     date: {
@@ -19,24 +20,19 @@ const billSchema = new Schema({
     total: {
         type: Number
     },
-    lineItems: [
-        {
-            product: {
-                type: Schema.Types.ObjectId,
-                ref: 'Product'
+    lineItems: {
+        type: [lineItemSchema],
+        required: true,
+        validate: {
+            validator: function(value){
+                if(!value) {
+                    return false
+                }
+                return value.length != 0
             },
-            price: {
-                type: Number
-            },
-            subTotal: {
-                type: Number
-            },
-            quantity: {
-                type: Number,
-                default: 1
-            }
+            message: "line items cannot be empty"
         }
-    ]
+    }
 }, { timestamps: true })
 
 billSchema.pre('save', function(next){

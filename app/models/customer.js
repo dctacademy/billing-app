@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+// const mongoose_delete = require('mongoose-delete')
+
 const isEmail = require('validator/lib/isEmail')
 const isNumeric = require('validator/lib/isNumeric')
 const Schema = mongoose.Schema
@@ -39,6 +41,8 @@ const customerSchema = new Schema({
         ref: 'User'
     }
 }, { timestamps: true })
+
+// customerSchema.plugin(mongoose_delete)
 
 const Customer = mongoose.model('Customer', customerSchema)
 
