@@ -1,5 +1,12 @@
 # Billing App
-This repo, is a backend only rest api services setup for a billing application. This is meant to be useful for students learning front end skills either React/Angular/Vue. There is always a need for Backend API's to be setup for them to create any meaningful application. 
+In this repo, the backend for a billing application has been setup. This is done to help the students who are learning front end development either React / Angular / Vue to build an application to test out their skills. 
+
+The modules are as follows  
+1. User 
+2. Customer
+3. Product 
+4. Bill 
+
 
 ## API's
 
