@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-
+const CONNECTION_URI = process.env.MONGODB_URI || `mongodb://localhost:27017/billing-app` 
 const configureDB = () => {
-    mongoose.connect('mongodb://localhost:27017/billing-app', {       
+    mongoose.connect(CONNECTION_URI, {       
             useNewUrlParser: true, 
             useUnifiedTopology: true, 
             useCreateIndex: true
