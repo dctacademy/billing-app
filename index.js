@@ -3,7 +3,7 @@ const app = express()
 const configureDB = require('./config/database')
 configureDB()
 const routes = require('./config/routes')
-const port = 3050
+const port = process.env.PORT || 3050
 
 app.use(express.json())
 app.use('/', routes)
