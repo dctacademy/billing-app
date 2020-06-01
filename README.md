@@ -8,7 +8,7 @@ The modules are as follows
 4. Bill 
 
 
-## API's
+## API's **base url - http://dct-billing-app.herokuapp.com/api**
 
 
 ### User Resource 

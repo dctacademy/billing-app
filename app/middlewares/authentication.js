@@ -11,17 +11,14 @@ const authenticateUser = (req, res, next) => {
                 next()
             })
             .catch((err) => {
-                res.json(err)
+                res.status(401).json(err)
             })
        
     } catch(e) {
-        res.json(e.message)
+        res.status(401).json(e.message)
     }
 }
 
-// const authorizeUser = () => {
-
-// }
 
 module.exports = {
     authenticateUser
