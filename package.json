@@ -11,6 +11,7 @@
     "node": "10.15.1",
     "npm": "6.4.1"
   },
+  "stack": "heroku-20",
   "keywords": [],
   "author": "",
   "license": "ISC",
