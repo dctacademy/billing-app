@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
+  "engines": {
+    "node": "10.15.1",
+    "npm": "6.4.1"
+  },
+  "stack": "heroku-20",
   "keywords": [],
   "author": "",
   "license": "ISC",
